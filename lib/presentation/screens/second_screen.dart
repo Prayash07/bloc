@@ -17,8 +17,6 @@ class SecondScreen extends StatefulWidget {
 }
 
 class _SecondScreenState extends State<SecondScreen> {
-  int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +32,6 @@ class _SecondScreenState extends State<SecondScreen> {
             ),
             BlocConsumer<CounterCubit, CounterState>(
               listener: (context, state) {
-                // TODO: implement listener
                 if (state.wasIncremented) {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     content: Text("value was increased"),

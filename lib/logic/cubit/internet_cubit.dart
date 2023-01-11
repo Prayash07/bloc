@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:bloc_test/constants/enums.dart';
+import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
@@ -18,6 +19,9 @@ class InternetCubit extends Cubit<InternetState> {
   StreamSubscription<ConnectivityResult> monitorInternetConnection() {
     return connectivityStreamSubscription =
         connectivity.onConnectivityChanged.listen((connectivityResult) {
+      if (kDebugMode) {
+        print("connectivity result ----- " + connectivityResult.toString());
+      }
       if (connectivityResult == ConnectivityResult.wifi) {
         emitInternetConnected(ConnectionType.wifi);
       } else if (connectivityResult == ConnectivityResult.mobile) {
