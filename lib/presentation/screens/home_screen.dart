@@ -35,6 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
           automaticallyImplyLeading: false,
+          actions: [
+            IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () =>
+                    Navigator.pushNamed(context, '/settingscreen')),
+          ],
         ),
         body: Center(
           child: Column(

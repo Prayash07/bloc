@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:bloc_test/logic/cubit/settings_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,25 +10,10 @@ import 'package:bloc_test/logic/cubit/internet_cubit.dart';
 import 'package:bloc_test/presentation/router/app_router.dart';
 import 'package:equatable/equatable.dart';
 
-class MyClass extends Equatable {
-  final int value;
-
-  MyClass({required this.value});
-
-  @override
-  // TODO: implement props
-  List<Object?> get props => [value];
-}
-
 void main() {
-  final a = MyClass(value: 1);
-  final b = MyClass(value: 1);
-  if (kDebugMode) {
-    print("value is equal or not ${a == b}");
-  }
-  // runApp(MyApp(
-  //   connectivity: Connectivity(),
-  // ));
+  runApp(MyApp(
+    connectivity: Connectivity(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -46,6 +32,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<CounterCubit>(
           create: (context) => CounterCubit(),
+        ),
+        BlocProvider<SettingsCubit>(
+          create: (context) => SettingsCubit(),
         )
       ],
       child: MaterialApp(

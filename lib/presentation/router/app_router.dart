@@ -1,5 +1,6 @@
 import 'package:bloc_test/presentation/screens/home_screen.dart';
 import 'package:bloc_test/presentation/screens/second_screen.dart';
+import 'package:bloc_test/presentation/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoute {
@@ -17,6 +18,8 @@ class AppRoute {
                   title: "Second Screen",
                   color: Colors.orange,
                 )));
+      case "/settingscreen":
+        return MaterialPageRoute(builder: ((context) => SettingsScreen()));
 
       default:
         return null;
